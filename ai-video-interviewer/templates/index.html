@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Video Interviewer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Video Interviewer</h1>
+        </header>
+
+        <main class="main-content">
+            <div class="video-panels">
+                <div class="panel">
+                    <h2>You</h2>
+                    <video id="userVideo" autoplay muted></video>
+                </div>
+                <div class="panel">
+                    <h2>AI Interviewer</h2>
+                    <img id="aiVisual" src="{{ url_for('static', filename='assets/ai_visual.png') }}" alt="AI Visual">
+                </div>
+            </div>
+
+            <div class="conversation-panel">
+                <h2>Conversation</h2>
+                <div id="chatLog" class="chat-log"></div>
+                <audio id="interviewerAudio" controls style="display:none;"></audio>
+            </div>
+            
+             <div class="controls-panel">
+                <div id="setup">
+                    <h3>Setup</h3>
+                    <input type="file" id="resumeFile" accept=".pdf">
+                    <textarea id="jobDescription" placeholder="Paste the job description here..."></textarea>
+                    <button id="startButton" disabled>Loading Media...</button>
+                </div>
+                <div id="responseControls" style="display:none;">
+                     <h3>Your Response</h3>
+                     <p id="status">Ready when you are.</p>
+                     <button id="recordButton">Record Answer</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
